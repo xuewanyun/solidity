@@ -21,7 +21,7 @@ contract ERC20Contract {
     uint256 public totalSupply;
     // 查询账号余额
     mapping(address => uint256) balances;
-    // 授权地址的余额
+    // 给指定账户地址授权地址的余额
     mapping(address => mapping(address => uint256)) public allowances;
 
     event Transfer(address indexed from, address indexed to, uint256 value);
@@ -44,7 +44,7 @@ contract ERC20Contract {
     function balanceOf(address amount) public view returns (uint256) {
         return balances[amount];
     }
-
+    // 转账
     function transfer(address to, uint256 amount) public returns (bool) {
         require(
             balances[msg.sender] >= amount,
